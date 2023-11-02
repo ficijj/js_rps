@@ -13,17 +13,20 @@
         <h1>Rock, Paper, Scissors</h1>
     </header>
     <article>
-        <div id="user-choice">
-            <h3>You pick...</h3>
-            <div id="hands">
-                <img src="media/rock.svg" alt="Rock">
-                <img src="media/paper.svg" alt="Paper">
-                <img src="media/scissors.svg" alt="Scissors">
+        <div id="play">
+            <div id="user-choice">
+                <h3>You pick...</h3>
+                <div id="hands">
+                    <img id="rock" src="media/rock.svg" alt="Rock" onclick="select('r')">
+                    <img id="paper" src="media/paper.svg" alt="Paper" onclick="select('p')">
+                    <img id="scissors" src="media/scissors.svg" alt="Scissors" onclick="select('s')">
+                </div>
+                <button id="play">Play</button>
             </div>
-        </div>
-        <div id="computer-choice">
-            <h3>Opponent picks...</h3>
-            <img src="media/mystery.svg" alt="Question mark">
+            <div id="computer-choice">
+                <h3>Opponent picks...</h3>
+                <img src="media/mystery.svg" alt="Question mark">
+            </div>
         </div>
         <div id="results">
             <h3>____ beats ___. ___ wins!</h3>
@@ -40,9 +43,10 @@
                     <h3>__</h3>
                     <h5>ties</h5>
                 </div>
-                <button id="reset"></button>
+                <button id="reset">Reset stats</button>
             </div>
         </div>
     </article>
+    <script src="page.js"></script>
 </body>
 </html>

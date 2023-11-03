@@ -17,15 +17,20 @@
             <div id="user-choice">
                 <h3>You pick...</h3>
                 <div id="hands">
-                    <img id="rock" src="media/rock.svg" alt="Rock" onclick="select('r')">
-                    <img id="paper" src="media/paper.svg" alt="Paper" onclick="select('p')">
-                    <img id="scissors" src="media/scissors.svg" alt="Scissors" onclick="select('s')">
+                    <img id="rock" src="media/rock.svg" alt="Rock" onclick="select(this)">
+                    <img id="paper" src="media/paper.svg" alt="Paper" onclick="select(this)">
+                    <img id="scissors" src="media/scissors.svg" alt="Scissors" onclick="select(this)">
                 </div>
-                <button id="play">Play</button>
+                <button id="play" onclick="compPick()">Play</button>
             </div>
             <div id="computer-choice">
                 <h3>Opponent picks...</h3>
-                <img src="media/mystery.svg" alt="Question mark">
+                <div id="img-wrapper">
+                    <img id="question" src="media/mystery.svg" alt="Question mark">
+                    <img class="hide" id="comp-rock" src="media/rock.svg" alt="Rock">
+                    <img class="hide" id="comp-paper" src="media/paper.svg" alt="Paper">
+                    <img class="hide" id="comp-scissors" src="media/scissors.svg" alt="Scissors">
+                </div>
             </div>
         </div>
         <div id="results">

@@ -15,6 +15,7 @@ function select(picked) {
 }
 
 function compPick() {
+    let resultsText = document.getElementById('results-text');
     document.getElementById('question').classList.add('hide');
     compChoices[0].classList.remove('hide');
     let rand = Math.ceil(Math.random() * 2000 + 3000);
@@ -28,7 +29,7 @@ function compPick() {
     setTimeout(function() {
         clearInterval(tid);
         compSelected = i % 3;
-        determineWinLoss();
+        resultsText.innerText = determineWinLoss();
     }, rand);
 }
 
@@ -39,24 +40,24 @@ function determineWinLoss() {
             break;
         case (userSelected === compSelected):  // Both picked the same
             console.log('Tie!');
-            break;
+            return 'Tie!';
         case (userSelected === 0 && compSelected === 1):  // User picked rock, computer picked paper
             console.log('Loss!');
-            break;
+            return 'You lose.';
         case (userSelected === 0 && compSelected === 2):  // User picked rock, computer picked scissors
             console.log('Win!');
-            break;
+            return 'You win!';
         case (userSelected === 1 && compSelected === 0):  // User picked paper, computer picked rock
             console.log('Win!');
-            break;
+            return 'You win!';
         case (userSelected === 1 && compSelected === 2):  // User picked paper, computer picked scissors
             console.log('Loss!');
-            break;
+            return 'You lose.';
         case (userSelected === 2 && compSelected === 0):  // User picked scissors, computer picked rock
             console.log('Loss!');
-            break;
+            return 'You lose.';
         case (userSelected === 2 && compSelected === 1):  // User picked scissors, computer picked paper
-            console.log('win!');
-            break;
+            console.log('Win!');
+            return 'You win!';
     }
 }

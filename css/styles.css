@@ -58,8 +58,21 @@ article {
     transition: var(--std);
 }
 #stats {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+#stats > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.number,
+.labels {
+    margin: auto;
+}
+#reset {
+    margin-top: 3rem;
 }
 .hide {
     display: none;

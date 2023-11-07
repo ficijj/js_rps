@@ -34,22 +34,22 @@
             </div>
         </div>
         <div id="results">
-            <h3 id="results-text"></h3>
+            <p id="results-text"></p>
             <div id="stats">
                 <div id="wins">
-                    <h3 class="numbers">__</h3>
+                    <p class="numbers" id="win-num">0</p>
                     <p class="labels">wins</p>
                 </div>
                 <div id="losses">
-                    <h3 class="numbers">__</h3>
+                    <p class="numbers" id="loss-num">0</p>
                     <p class="labels">losses</p>
                 </div>
                 <div id="ties">
-                    <h3 class="numbers">__</h3>
+                    <p class="numbers" id="tie-num">0</p>
                     <p class="labels">ties</p>
                 </div>
             </div>
-            <button id="reset">Reset</button>
+            <button id="reset" onclick="reset()">Reset</button>
         </div>
     </article>
     <script src="page.js"></script>

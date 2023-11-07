@@ -15,7 +15,6 @@ function select(picked) {
 }
 
 function compPick() {
-    let resultsText = document.getElementById('results-text');
     document.getElementById('question').classList.add('hide');
     compChoices[0].classList.remove('hide');
     let rand = Math.ceil(Math.random() * 2000 + 3000);
@@ -29,35 +28,85 @@ function compPick() {
     setTimeout(function() {
         clearInterval(tid);
         compSelected = i % 3;
-        resultsText.innerText = determineWinLoss();
+        determineWinLoss();
     }, rand);
 }
 
 function determineWinLoss() {
+    let resultsText = document.getElementById('results-text');
+    let wins = sessionStorage.getItem("winCount");
+    let ties = sessionStorage.getItem("tieCount");
+    let losses = sessionStorage.getItem("lossCount");
+    if (wins == null) {
+      wins = 0;
+    } else {
+      wins = wins;
+    };
+    if (ties == null) {
+      ties = 0;
+    } else {
+      ties = ties;
+    };
+    if (losses == null) {
+      losses = 0;
+    } else {
+      losses = losses;
+    };
+    
     switch(true) {
         default:
             console.log('NOT SELECTED');
             break;
         case (userSelected === compSelected):  // Both picked the same
             console.log('Tie!');
-            return 'Tie!';
+            ++ties;
+            resultsText.innerText = 'Tie!';
+            break;
         case (userSelected === 0 && compSelected === 1):  // User picked rock, computer picked paper
             console.log('Loss!');
-            return 'You lose.';
+            ++losses;
+            resultsText.innerText = 'Paper beats rock. You lose.';
+            break;
         case (userSelected === 0 && compSelected === 2):  // User picked rock, computer picked scissors
             console.log('Win!');
-            return 'You win!';
+            ++wins;
+            resultsText.innerText = 'Rock beats scissors. You win!';
+            break;
         case (userSelected === 1 && compSelected === 0):  // User picked paper, computer picked rock
             console.log('Win!');
-            return 'You win!';
+            ++wins;
+            resultsText.innerText = 'Paper beats rock. You win!';
+            break;
         case (userSelected === 1 && compSelected === 2):  // User picked paper, computer picked scissors
             console.log('Loss!');
-            return 'You lose.';
+            ++losses;
+            resultsText.innerText = 'Scissors beats paper. You lose.';
+            break;
         case (userSelected === 2 && compSelected === 0):  // User picked scissors, computer picked rock
             console.log('Loss!');
-            return 'You lose.';
+            ++losses;
+            resultsText.innerText = 'Rock beats scissors. You lose.';
+            break;
         case (userSelected === 2 && compSelected === 1):  // User picked scissors, computer picked paper
             console.log('Win!');
-            return 'You win!';
+            ++wins;
+            resultsText.innerText = 'Scissors beats paper. You win!';
+            break;
     }
+
+    sessionStorage.setItem("winCount", wins);
+    sessionStorage.setItem("tieCount", ties);
+    sessionStorage.setItem("lossCount", losses);
+    document.getElementById('win-num').innerHTML = sessionStorage.getItem("winCount");
+    document.getElementById('tie-num').innerHTML = sessionStorage.getItem("tieCount");
+    document.getElementById('loss-num').innerHTML = sessionStorage.getItem("lossCount");
+}
+
+function reset() {
+    sessionStorage.setItem("winCount", 0);
+    sessionStorage.setItem("tieCount", 0);
+    sessionStorage.setItem("lossCount", 0);
+    document.getElementById('win-num').innerHTML = sessionStorage.getItem("winCount");
+    document.getElementById('tie-num').innerHTML = sessionStorage.getItem("tieCount");
+    document.getElementById('loss-num').innerHTML = sessionStorage.getItem("lossCount");
 }

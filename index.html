@@ -21,7 +21,7 @@
                     <img id="paper" src="media/paper.svg" alt="Paper" onclick="select(this)">
                     <img id="scissors" src="media/scissors.svg" alt="Scissors" onclick="select(this)">
                 </div>
-                <button id="play" onclick="compPick()">Play</button>
+                <button id="play" onclick="compPick()"><span>Play</span></button>
             </div>
             <div id="computer-choice">
                 <h3>Opponent picks...</h3>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div id="results">
-            <p id="results-text"></p>
+            <p id="results-text">. . .</p>
             <div id="stats">
                 <div id="wins">
                     <p class="numbers" id="win-num">0</p>
@@ -49,7 +49,7 @@
                     <p class="labels">ties</p>
                 </div>
             </div>
-            <button id="reset" onclick="reset()">Reset</button>
+            <button id="reset" onclick="reset()"><span>Reset</span></button>
         </div>
     </article>
     <script src="page.js"></script>

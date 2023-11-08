@@ -110,3 +110,23 @@ function reset() {
     document.getElementById('tie-num').innerHTML = sessionStorage.getItem("tieCount");
     document.getElementById('loss-num').innerHTML = sessionStorage.getItem("lossCount");
 }
+
+function toggleTheme() {
+    document.getElementById('dark-mode').classList.toggle('hide');
+    document.getElementById('light-mode').classList.toggle('hide');
+
+    document.getElementById('body').classList.toggle('body-dark');
+    document.getElementById('body').classList.toggle('body-light');
+
+    document.getElementById('play-button').classList.toggle('button-dark');
+    document.getElementById('reset').classList.toggle('button-dark');
+    document.getElementById('play-button').classList.toggle('button-light');
+    document.getElementById('reset').classList.toggle('button-light');
+
+    document.getElementById('user-choice').classList.toggle('box-dark');
+    document.getElementById('computer-choice').classList.toggle('box-dark');
+    document.getElementById('results').classList.toggle('box-dark');
+    document.getElementById('user-choice').classList.toggle('box-light');
+    document.getElementById('computer-choice').classList.toggle('box-light');
+    document.getElementById('results').classList.toggle('box-light');
+}

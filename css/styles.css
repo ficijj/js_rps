@@ -1,13 +1,23 @@
 :root {
     --std: all .2s ease-in-out;
-    --background: #344055;
-    --box-background: #888098;
-    --text-color: #EDF4ED;
+    --background-dark: #344055;
+    --background-light: #CDE5D7;
+    --box-background-dark: #888098;
+    --box-background-light: #DED6D1;
+    --text-color-dark: #EDF4ED;
+    --text-color-light: #444444;
 }
 body {
     height: 100vh;
-    background-color: var(--background);
-    color: var(--text-color);
+    transition: var(--std);
+}
+.body-dark {
+    background-color: var(--background-dark);
+    color: var(--text-color-dark);
+}
+.body-light {
+    background-color: var(--background-light);
+    color: var(--text-color-light);
 }
 img {
     width: 10rem;
@@ -15,7 +25,6 @@ img {
     padding: 5px;
 }
 button {
-    background-color: var(--background);
     width: 7rem;
     height: 3rem;
     border: none;
@@ -26,6 +35,12 @@ button {
     transition: var(--std);
     box-shadow: 0 1px 8px rgba(0,0,0,.5);
 }
+.button-dark {
+    background-color: var(--background-dark);
+}
+.button-light {
+    background-color: var(--background-light);
+}
 button:hover {
     cursor: pointer;
     box-shadow: 0 3px 24px rgba(0,0,0,.25);
@@ -34,11 +49,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+#dark-mode-switch {
+    position: absolute;
+    right: 25px;
+}
+.material-symbols-outlined {
+    font-size: 32px;
+    cursor: pointer;
+    transition: var(--std);
+    clip-path: circle();
 }
 article {
     display: flex;
     flex-direction: column;
-    justify-items: center;
     align-items: center;
 }
 #play {
@@ -54,10 +79,32 @@ article {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
     border-radius: 5px;
     width: 400px;
-    background-color: var(--box-background);
+}
+.box-dark {
+    background-color: var(--box-background-dark);
+    border: 2px solid black;
+}
+.box-light {
+    background-color: var(--box-background-light);
+    border: 2px solid black;
+}
+#results {
+    width: 860px;
+}
+@media only screen and (max-width: 868px) {
+    #play {
+        flex-direction: column;
+    }
+    #user-choice,
+    #computer-choice,
+    #results {
+        margin: 10px;
+    }
+    #results {
+        width: 400px;
+    }
 }
 #hands {
     width: 100%;
@@ -67,6 +114,7 @@ article {
 #hands > img {
     padding: 8px;
     margin: 10px;
+    border-color: black;
     border-radius: 5px;
 }
 #hands > img:hover {
@@ -82,12 +130,11 @@ article {
 #stats {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 #stats > div {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 .numbers,
 .labels {

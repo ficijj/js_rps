@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="css/modnorm.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="body-dark" id="body">
     <header>
         <h1>Rock, Paper, Scissors</h1>
+        <div id="dark-mode-switch">
+            <span id="dark-mode" class="material-symbols-outlined" onclick="toggleTheme()">dark_mode</span>
+            <span id="light-mode" class="hide material-symbols-outlined" onclick="toggleTheme()">light_mode</span>
+        </div>
     </header>
     <article>
         <div id="play">
-            <div id="user-choice">
+            <div id="user-choice" class="box-dark">
                 <h3>You pick...</h3>
                 <div id="hands">
                     <img id="rock" src="media/rock.svg" alt="Rock" onclick="select(this)">
                     <img id="paper" src="media/paper.svg" alt="Paper" onclick="select(this)">
                     <img id="scissors" src="media/scissors.svg" alt="Scissors" onclick="select(this)">
                 </div>
-                <button id="play" onclick="compPick()"><span>Play</span></button>
+                <button id="play-button" class="button-dark" onclick="compPick()"><span>Play</span></button>
             </div>
-            <div id="computer-choice">
+            <div id="computer-choice" class="box-dark">
                 <h3>Opponent picks...</h3>
                 <div id="img-wrapper">
                     <img id="question" src="media/mystery.svg" alt="Question mark">
@@ -33,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div id="results">
+        <div id="results" class="box-dark">
             <p id="results-text">. . .</p>
             <div id="stats">
                 <div id="wins">
@@ -49,7 +53,7 @@
                     <p class="labels">ties</p>
                 </div>
             </div>
-            <button id="reset" onclick="reset()"><span>Reset</span></button>
+            <button id="reset" class="button-dark" onclick="reset()"><span>Reset</span></button>
         </div>
     </article>
     <script src="page.js"></script>

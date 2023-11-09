@@ -3,6 +3,30 @@ let userSelected = -1;
 let compChoices = [document.getElementById('comp-rock'), document.getElementById('comp-paper'), document.getElementById('comp-scissors')]
 let compSelected = -1;
 
+document.addEventListener('DOMContentLoaded', function() {
+    let wins = sessionStorage.getItem("winCount");
+    let ties = sessionStorage.getItem("tieCount");
+    let losses = sessionStorage.getItem("lossCount");
+    if (wins == null) {
+        wins = 0;
+      } else {
+        wins = wins;
+      };
+      if (ties == null) {
+        ties = 0;
+      } else {
+        ties = ties;
+      };
+      if (losses == null) {
+        losses = 0;
+      } else {
+        losses = losses;
+      };
+    document.getElementById('win-num').innerHTML = wins;
+    document.getElementById('tie-num').innerHTML = ties;
+    document.getElementById('loss-num').innerHTML = losses;
+}, false);
+
 function select(picked) {
     for(let i = 0; i < userChoices.length; i++) {
         if(picked === userChoices[i]) {
@@ -16,9 +40,10 @@ function select(picked) {
 
 function compPick() {
     document.getElementById('question').classList.add('hide');
-    compChoices[0].classList.remove('hide');
+    compChoices.forEach(element => {
+        element.classList.add('hide');
+    });
     let rand = Math.ceil(Math.random() * 2000 + 3000);
-    console.log(rand);
     let i = 0;
     var tid = setInterval(function() {
         compChoices[i % 3].classList.add('hide');

@@ -139,6 +139,7 @@ article {
 #stats > div {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .numbers,
 .labels {
@@ -146,6 +147,7 @@ article {
 }
 #results-text {
     font-size: 2rem;
+    text-align: center;
 }
 .numbers {
     font-size: 2.8rem;
@@ -155,11 +157,4 @@ article {
 }
 .hide {
     display: none;
-}
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
 }

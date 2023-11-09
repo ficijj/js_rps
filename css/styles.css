@@ -8,8 +8,9 @@
     --text-color-light: #444444;
 }
 body {
-    height: 100vh;
     transition: var(--std);
+    display: flex;
+    flex-direction: column;
 }
 .body-dark {
     background-color: var(--background-dark);
@@ -51,6 +52,9 @@ header {
     align-items: center;
     position: relative;
 }
+#title {
+    font-size: 2.6rem;
+}
 #dark-mode-switch {
     position: absolute;
     right: 25px;
@@ -75,12 +79,12 @@ article {
 #computer-choice,
 #results {
     padding: 15px;
-    margin: 30px;
+    margin: 0px 30px 30px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
-    width: 400px;
+    min-width: 400px;
 }
 .box-dark {
     background-color: var(--box-background-dark);
@@ -151,4 +155,11 @@ article {
 }
 .hide {
     display: none;
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
 }
